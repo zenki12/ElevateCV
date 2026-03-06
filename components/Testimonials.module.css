@@ -23,26 +23,45 @@
     margin: 0 auto;
     padding: 0 var(--space-lg);
     position: relative;
+    user-select: none;
+    /* Prevent text selection while dragging */
+}
+
+.carouselContainer {
+    overflow: hidden;
+    /* Hide the items outside the track */
+    width: 100%;
+    position: relative;
+    padding-bottom: var(--space-md);
 }
 
 .carouselTrack {
     display: flex;
-    gap: var(--space-xl);
-    overflow: hidden;
+    gap: 0;
+    /* Removing gap and handling spacing with padding on individual items for smoother drag math */
+    width: 100%;
 }
 
 .testimonialCard {
-    min-width: calc(33.333% - var(--space-xl) * 2 / 3);
+    min-width: 33.333%;
+    padding: 0 calc(var(--space-xl) / 2);
+    /* Substitute for previous track gap */
+    flex-shrink: 0;
+}
+
+.testimonialCardInner {
     background: var(--color-bg-card);
     border-radius: var(--radius-xl);
     padding: var(--space-xl);
     text-align: left;
     transition: all var(--transition-slow);
     border: 1px solid var(--color-border-light);
-    flex-shrink: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
-.testimonialCard:hover {
+.testimonialCardInner:hover {
     box-shadow: var(--shadow-md);
 }
 
@@ -58,7 +77,8 @@
     color: var(--color-text-secondary);
     line-height: 1.7;
     margin-bottom: var(--space-lg);
-    min-height: 80px;
+    flex-grow: 1;
+    /* Pushes the author info to the bottom uniformly */
 }
 
 .divider {
@@ -134,6 +154,7 @@
 @media (max-width: 768px) {
     .testimonialCard {
         min-width: 100%;
+        padding: 0 calc(var(--space-sm) / 2);
     }
 
     .sectionTitle {
