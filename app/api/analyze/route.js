@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import { GoogleGenerativeAI } from '@google/generative-ai';
+import { incrementCounter } from '../../../lib/counter';
 
 // Initialize Gemini
 const genAI = process.env.GEMINI_API_KEY
@@ -371,9 +372,9 @@ export async function POST(request) {
             cvText = `[Không thể trích xuất text từ file: ${cvFile.name}]`;
         }
 
-        // Increment counter asynchronously
+        // Increment counter internally
         try {
-            fetch(new URL('/api/counter', request.url).toString(), { method: 'POST' }).catch(() => { });
+            incrementCounter();
         } catch (e) {
             console.error('Failed to trigger counter increment', e);
         }
