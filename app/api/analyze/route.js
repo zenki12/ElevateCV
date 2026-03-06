@@ -71,8 +71,9 @@ Trả về JSON với cấu trúc CHÍNH XÁC sau (không thêm markdown, không
 
 async function extractTextFromPDF(buffer) {
     try {
-        const pdf = await import('pdf-parse/lib/pdf-parse.js');
-        const data = await pdf.default(buffer);
+        // Use pdf-parse with require() for better Vercel compatibility
+        const pdfParse = require('pdf-parse');
+        const data = await pdfParse(buffer);
         return data.text;
     } catch (err) {
         console.error('PDF parse error:', err);
@@ -82,7 +83,7 @@ async function extractTextFromPDF(buffer) {
 
 async function extractTextFromDOCX(buffer) {
     try {
-        const mammoth = await import('mammoth');
+        const mammoth = require('mammoth');
         const result = await mammoth.extractRawText({ buffer });
         return result.value;
     } catch (err) {
@@ -100,11 +101,11 @@ function getMockResult() {
         cvStrategy: {
             summary: "Ứng viên Nông Xuân Thái sở hữu nền tảng mạnh mẽ về Vận hành Kinh doanh (Sales Operations) và tư duy phân tích dữ liệu, rất phù hợp với 45% trong số công việc (Điều phối tiến độ) & Tham mưu chiến lược. Tuy nhiên, cần lưu ý là thiếu kinh nghiệm chuyển sâu về hành chính/thủ tục/kế toán.",
             shouldDo: "Đặt vị trí bản thân từ 'Quản lý Sales' sang 'Trợ lý Kinh doanh Chiến lược'. Nhấn mạnh khả năng 'Tham mưu & Phân tích' để bổ sung cho phần Hành chính.",
-            shouldNotDo: "Nếu được phỏng vấn, tê bàn chuẩn bị trình chuyển đổi số, đo đạt thuyết phục nhà tuyển dụng thay vì tập trung vào kinh nghiệm Sales thuần."
+            shouldNotDo: "Nếu được phỏng vấn, cần chuẩn bị trình bày về chuyển đổi số, đo đạt thuyết phục nhà tuyển dụng thay vì tập trung vào kinh nghiệm Sales thuần."
         },
         metrics: [
-            { name: "Mức độ phù hợp", score: 61, comment: "Kiến thức gặp hành chính tuyển dụng hơn chưa đủ rõ." },
-            { name: "Hiệu quả tóm tắt", score: 74, comment: "Mặc dù, sẽ ổn nhưng cần thêm câu kết dẫn dắt tốt đẹp hơn." },
+            { name: "Mức độ phù hợp", score: 61, comment: "Kiến thức hành chính tuyển dụng chưa đủ rõ." },
+            { name: "Hiệu quả tóm tắt", score: 74, comment: "Ổn nhưng cần thêm câu kết dẫn dắt tốt hơn." },
             { name: "Kinh nghiệm", score: 72, comment: "3 năm kinh nghiệm phù hợp, cần highlight rõ hơn." },
             { name: "Kỹ năng kỹ thuật", score: 65, comment: "Có kỹ năng Excel, cần thêm công cụ quản lý." },
             { name: "Học vấn", score: 70, comment: "Bằng cử nhân phù hợp với vị trí." },
@@ -178,10 +179,8 @@ export async function POST(request) {
         }
 
         if (!cvText.trim()) {
-            return NextResponse.json(
-                { error: 'Không thể đọc nội dung CV. Vui lòng kiểm tra lại file.' },
-                { status: 400 }
-            );
+            // If we can't extract text, still allow analysis with filename info
+            cvText = `[Không thể trích xuất text từ file: ${cvFile.name}]`;
         }
 
         // If no Gemini API key, return mock data
