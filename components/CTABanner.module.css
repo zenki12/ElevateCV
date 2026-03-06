@@ -1,0 +1,94 @@
+.cta {
+    padding: var(--space-4xl) 0;
+    text-align: center;
+}
+
+.ctaInner {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: var(--space-3xl) var(--space-xl);
+    background: linear-gradient(135deg, var(--color-bg-dark), var(--color-bg-darker));
+    border-radius: var(--radius-xl);
+    position: relative;
+    overflow: hidden;
+}
+
+.ctaInner::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -30%;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(197, 113, 61, 0.15) 0%, transparent 70%);
+    border-radius: 50%;
+}
+
+.ctaContent {
+    position: relative;
+    z-index: 1;
+}
+
+.ctaTitle {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--color-text-on-dark);
+    margin-bottom: var(--space-md);
+}
+
+.ctaSubtitle {
+    font-size: 1rem;
+    color: rgba(245, 240, 235, 0.7);
+    max-width: 480px;
+    margin: 0 auto var(--space-xl);
+    line-height: 1.7;
+}
+
+.ctaButtons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-md);
+}
+
+.ctaBtnPrimary {
+    background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
+    color: white;
+    padding: var(--space-md) var(--space-2xl);
+    border-radius: var(--radius-full);
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: all var(--transition-normal);
+    box-shadow: 0 4px 20px rgba(197, 113, 61, 0.4);
+}
+
+.ctaBtnPrimary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 30px rgba(197, 113, 61, 0.5);
+}
+
+.ctaBtnSecondary {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--color-text-on-dark);
+    padding: var(--space-md) var(--space-2xl);
+    border-radius: var(--radius-full);
+    font-weight: 600;
+    font-size: 0.95rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all var(--transition-normal);
+}
+
+.ctaBtnSecondary:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+@media (max-width: 768px) {
+    .ctaTitle {
+        font-size: 1.5rem;
+    }
+
+    .ctaButtons {
+        flex-direction: column;
+    }
+}
