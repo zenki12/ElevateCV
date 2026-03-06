@@ -3,9 +3,13 @@ import { useState, useEffect, useRef } from 'react';
 import styles from './Stats.module.css';
 
 function AnimatedCounter({ target, duration = 2000 }) {
-    const [count, setCount] = useState(0);
+    const [count, setCount] = useState(target);
     const ref = useRef(null);
     const [hasAnimated, setHasAnimated] = useState(false);
+
+    useEffect(() => {
+        setCount(target);
+    }, [target]);
 
     useEffect(() => {
         const observer = new IntersectionObserver(
@@ -37,6 +41,26 @@ function AnimatedCounter({ target, duration = 2000 }) {
 }
 
 export default function Stats() {
+    const [statsCount, setStatsCount] = useState(9);
+
+    useEffect(() => {
+        const fetchCount = async () => {
+            try {
+                const res = await fetch('/api/counter');
+                const data = await res.json();
+                if (data.count) {
+                    setStatsCount(data.count);
+                }
+            } catch (err) {
+                console.error("Failed to fetch count:", err);
+            }
+        };
+
+        fetchCount();
+        const interval = setInterval(fetchCount, 5000); // Poll every 5s
+        return () => clearInterval(interval);
+    }, []);
+
     return (
         <section className={styles.stats}>
             <div className={styles.statsInner}>
@@ -47,7 +71,7 @@ export default function Stats() {
                 <div className={styles.statCards}>
                     <div className={styles.statCard}>
                         <div className={styles.statNumber}>
-                            <AnimatedCounter target={1253} />
+                            <AnimatedCounter target={statsCount} />
                         </div>
                         <div className={styles.statLabel}>CV đã phân tích</div>
                     </div>

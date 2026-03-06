@@ -371,6 +371,13 @@ export async function POST(request) {
             cvText = `[Không thể trích xuất text từ file: ${cvFile.name}]`;
         }
 
+        // Increment counter asynchronously
+        try {
+            fetch(new URL('/api/counter', request.url).toString(), { method: 'POST' }).catch(() => { });
+        } catch (e) {
+            console.error('Failed to trigger counter increment', e);
+        }
+
         if (!genAI) {
             console.log('No GEMINI_API_KEY found, returning mock data');
             return NextResponse.json(getMockResult());

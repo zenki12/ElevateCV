@@ -1,4 +1,5 @@
 import "./globals.css";
+import ScrollToTop from '../components/ScrollToTop';
 
 export const metadata = {
   title: "ElevateCV - Review & Phân Tích CV Bằng AI",
@@ -9,7 +10,10 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="vi">
-      <body>{children}</body>
+      <body>
+        {children}
+        <ScrollToTop />
+      </body>
     </html>
   );
 }

@@ -1,0 +1,28 @@
+.scrollToTop {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background-color: #d1512d;
+    /* Primary brand color */
+    color: white;
+    border: none;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(209, 81, 45, 0.3);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.scrollToTop:hover {
+    background-color: #b03e21;
+    /* Slightly darker */
+    transform: translateY(-3px);
+    box-shadow: 0 6px 16px rgba(209, 81, 45, 0.4);
+}
