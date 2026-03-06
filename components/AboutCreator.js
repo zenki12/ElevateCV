@@ -9,7 +9,7 @@ export default function AboutCreator() {
                     <div className={styles.avatarSection}>
                         {/* We will use a placeholder or generic avatar since we don't have his real photo */}
                         <div className={styles.avatar}>
-                            <span>XT</span>
+                            <img src="/images/creator-avatar.png" alt="Xuân Thái - ElevatorCV Founder" className={styles.avatarImage} />
                         </div>
                         <div className={styles.decorativeCircle}></div>
                     </div>
