@@ -126,7 +126,7 @@ export default function ReviewPage() {
                             onDrop={handleDrop}
                         >
                             <span className={styles.uploadIcon}>📤</span>
-                            <div className={styles.uploadText}>Tệp mô tả công việc (CV)</div>
+                            <div className={styles.uploadText}>Tệp CV của bạn</div>
                             <div className={styles.uploadHint}>Kéo và thả file tại đây, hoặc click để chọn</div>
                             <div className={styles.uploadFormats}>Chỉ hỗ trợ PDF, DOCX (Tối đa 2MB)</div>
                         </div>

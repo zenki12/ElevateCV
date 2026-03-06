@@ -117,6 +117,31 @@ function RadarChart({ metrics }) {
                     />
                 );
             })}
+
+            {/* Axis labels */}
+            {axes.map((a, i) => {
+                const angle = angleSlice * i - Math.PI / 2;
+                // Adjust text alignment based on angle
+                let textAnchor = 'middle';
+                if (Math.abs(Math.cos(angle)) > 0.1) {
+                    textAnchor = Math.cos(angle) > 0 ? 'start' : 'end';
+                }
+
+                return (
+                    <text
+                        key={`label-${i}`}
+                        x={a.labelX}
+                        y={a.labelY}
+                        fontSize="10"
+                        fontWeight="600"
+                        fill="var(--color-text-secondary)"
+                        textAnchor={textAnchor}
+                        dominantBaseline="middle"
+                    >
+                        {metrics[i].name}
+                    </text>
+                );
+            })}
         </svg>
     );
 }
