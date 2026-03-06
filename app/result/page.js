@@ -32,7 +32,7 @@ function getScoreColor(score) {
 
 /* SVG Radar Chart */
 function RadarChart({ metrics }) {
-    const size = 300;
+    const size = 450;
     const center = size / 2;
     const maxRadius = 110;
     const levels = 5;

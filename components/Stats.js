@@ -51,12 +51,6 @@ export default function Stats() {
                         </div>
                         <div className={styles.statLabel}>CV đã phân tích</div>
                     </div>
-                    <div className={styles.statCard}>
-                        <div className={styles.statNumber}>
-                            <AnimatedCounter target={897} />
-                        </div>
-                        <div className={styles.statLabel}>Người dùng tin tưởng</div>
-                    </div>
                 </div>
             </div>
         </section>

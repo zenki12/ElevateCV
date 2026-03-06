@@ -18,14 +18,14 @@ export default function Footer() {
 
                     <div className={styles.footerLinks}>
                         <div className={styles.footerLinksTitle}>Liên hệ</div>
-                        <a href="https://facebook.com" className={styles.footerLink} target="_blank" rel="noopener noreferrer">
+                        <a href="https://www.facebook.com/okthaiday/" className={styles.footerLink} target="_blank" rel="noopener noreferrer">
                             📘 Facebook
                         </a>
-                        <a href="https://linkedin.com" className={styles.footerLink} target="_blank" rel="noopener noreferrer">
-                            💼 LinkedIn
+                        <a href="https://zalo.me/0969504696" className={styles.footerLink} target="_blank" rel="noopener noreferrer">
+                            💬 Zalo: 0969.504.696
                         </a>
-                        <a href="mailto:info@elevatecv.com" className={styles.footerLink}>
-                            ✉️ info@elevatecv.com
+                        <a href="mailto:okthaiday@gmail.com" className={styles.footerLink}>
+                            ✉️ okthaiday@gmail.com
                         </a>
                     </div>
 
