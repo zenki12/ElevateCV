@@ -15,7 +15,7 @@ export default function AboutCreator() {
                     </div>
                     <div className={styles.contentSection}>
                         <h2 className={styles.greeting}>Xin chào, tôi là <span>Xuân Thái</span> 👋</h2>
-                        <h3 className={styles.role}>Người sáng lập & Phát triển ElevateCV</h3>
+                        <h3 className={styles.role}>Người tạo ra ElevateCV</h3>
                         <p className={styles.story}>
                             Là một người từng chật vật với hàng chục phiên bản CV khác nhau để tìm kiếm cơ hội nghề nghiệp, tôi hiểu rất rõ những khó khăn của các ứng viên khi ứng tuyển.
                         </p>
@@ -23,7 +23,7 @@ export default function AboutCreator() {
                             <strong>ElevateCV</strong> được tạo ra từ chính trải nghiệm đó — với mong muốn ứng dụng sức mạnh của AI để giúp bất kỳ ai cũng có thể dễ dàng sở hữu một bản CV chuẩn mực, nổi bật và tự tin nắm bắt công việc mơ ước.
                         </p>
                         <p className={styles.story}>
-                            <strong>Lưu ý:</strong> ElevateCV ra đời với mục đích hỗ trợ ứng viên tối ưu CV một cách chuyên nghiệp và chân thực nhất. Chúng tôi hoàn toàn không cổ xúy cho các hành vi gian lận hay bịa đặt thông tin. Mọi sự thiếu trung thực đều đi ngược lại với giá trị cốt lõi của ứng dụng và đáng bị lên án.
+                            <strong>Lưu ý:</strong> ElevateCV ra đời với mục đích hỗ trợ ứng viên tối ưu CV một cách chuyên nghiệp và chân thực nhất. Tôi hoàn toàn không cổ xúy cho các hành vi gian lận hay bịa đặt thông tin. Mọi sự thiếu trung thực đều đi ngược lại với giá trị cốt lõi của ứng dụng và đáng bị lên án.
                         </p>
                         <div className={styles.socialLinks}>
                             <a href="https://www.facebook.com/okthaiday/" target="_blank" rel="noopener noreferrer" className={styles.socialLink}>
