@@ -9,7 +9,7 @@ export default function Footer() {
                     <div className={styles.footerBrand}>
                         <div className={styles.footerLogo}>
                             <span className={styles.footerLogoIcon}>E</span>
-                            ElevateCV
+                            <span className={styles.footerLogoText}>ElevateCV</span>
                         </div>
                         <p className={styles.footerDesc}>
                             Công cụ phân tích CV bằng AI, giúp bạn tự tin hơn trong hành trình tìm kiếm công việc mơ ước.

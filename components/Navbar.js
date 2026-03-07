@@ -18,7 +18,7 @@ export default function Navbar() {
             <div className={styles.navContent}>
                 <Link href="/" className={styles.logo}>
                     <span className={styles.logoIcon}>E</span>
-                    ElevateCV
+                    <span className={styles.logoText}>ElevateCV</span>
                 </Link>
 
                 <button
