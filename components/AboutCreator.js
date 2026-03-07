@@ -15,7 +15,7 @@ export default function AboutCreator() {
                     </div>
                     <div className={styles.contentSection}>
                         <h2 className={styles.greeting}>Xin chào, tôi là <span>Xuân Thái</span> 👋</h2>
-                        <h3 className={styles.role}>Người tạo ra ElevateCV</h3>
+                        <h3 className={styles.role}>Người phát triển Elevate-CV</h3>
                         <p className={styles.story}>
                             Là một người từng chật vật với hàng chục phiên bản CV khác nhau để tìm kiếm cơ hội nghề nghiệp, tôi hiểu rất rõ những khó khăn của các ứng viên khi ứng tuyển.
                         </p>
